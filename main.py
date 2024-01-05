@@ -2,7 +2,9 @@
 def main():
 
  #Initialize a book list
-  Listbook = []
+ #To store the details of the book
+  Listbook = [] 
+ #To store the book dictonaries
   books = []
  
  
@@ -28,10 +30,11 @@ def main():
         name_book = input("Enter the name of the book>>>")
         author_book = input("Enter the name of the author>>>")
         pages_book = input("Enter the number of the pages of the book>>>")
+
         #Adding the user input to the list of books using the append method
         Listbook.append([name_book, author_book, pages_book])
         books.append({'bookname': name_book, 'author': author_book, 'pages':pages_book})
-        print(books)
+        print("Book added successfully!")
 
      
      #conditional statement for the subsequent choices if the previous entry is 1
@@ -39,9 +42,12 @@ def main():
         print("Looking up a book......")
         #user input to search by assigning a variable
         keyword = input("Enter search Term:")
-        for books in Listbook:
-         if keyword in books[0] or keyword in books[1] or keyword in books[2]:
-           print(books)
+        look_books = [book for book in Listbook if keyword in book[0] or keyword in book[1] or keyword in book[2]]
+        if look_books:
+              for book in look_books:
+                    print(book)
+        else:
+              print("Book not found.")
    
    
     #conditional statement for selecting a book when the condition is true: entry is 3
@@ -62,7 +68,7 @@ def main():
     #Elif statement for quitting the application when the condition is true: entry is 5
     elif choice == 5:
       print("Quitting the application....")
-      print("Program Terminated")
+    print("Program Terminated")
 
 
 
